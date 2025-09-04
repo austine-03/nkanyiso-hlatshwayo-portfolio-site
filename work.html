@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work - Nkanyiso Austine Hlatshwayo Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dark-glass {
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-in {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-image {
+            transition: transform 0.4s ease;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .project-visible {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .tech-tag {
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            transform: scale(1.1);
+        }
+
+        .demo-btn {
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            background-size: 200% 200%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .modal {
+            backdrop-filter: blur(20px);
+        }
+
+        .modal-content {
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white min-h-screen">
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+        <div class="glass-effect rounded-full px-8 py-4">
+            <div class="flex space-x-8">
+                <a href="index.html" class="hover:text-purple-300 transition-colors font-medium">Home</a>
+                <a href="work.html" class="hover:text-purple-300 transition-colors font-medium">Work</a>
+                <a href="about.html" class="hover:text-purple-300 transition-colors font-medium">About</a>
+                <a href="contact.html" class="hover:text-purple-300 transition-colors font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl floating-animation"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl floating-animation" style="animation-delay: -3s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl floating-animation" style="animation-delay: -1.5s;"></div>
+        </div>
+
+        <div class="text-center z-10 px-4">
+            <div class="slide-in-up">
+                <div class="w-32 h-32 mx-auto mb-8 glass-effect rounded-full flex items-center justify-center text-6xl floating-animation">
+                    💼
+                </div>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 slide-in-left">
+                My <span class="gradient-text">Work</span>
+            </h1>
+            <p class="text-2xl md:text-3xl mb-8 text-gray-300 slide-in-right">
+                A collection of projects that define my journey
+            </p>
+            <p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto slide-in-up">
+                From innovative web applications to immersive VR experiences, each project represents
+                a unique challenge solved with creativity, technical expertise, and attention to detail.
+            </p>
+            <div class="slide-in-up">
+                <a href="#projects" class="bg-gradient-to-r from-purple-500 to-blue-500 px-8 py-4 rounded-full hover:from-purple-600 hover:to-blue-600 transition-all transform hover:scale-105">
+                    Explore Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section id="projects" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6 slide-in-up">Featured <span class="gradient-text">Projects</span></h2>
+                <p class="text-xl text-gray-300 mb-12 slide-in-up">Filter by category to explore different types of work</p>
+
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 slide-in-up">
+                    <button class="filter-btn active glass-effect px-6 py-3 rounded-full font-medium" data-filter="all">
+                        All Projects
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Project 1: AI Art Generator -->
+                <div class="project-card dark-glass rounded-2xl overflow-hidden project-visible" data-category="ai web">
+                    <div class="relative h-64 bg-gradient-to-br from-cyan-400 to-blue-500 overflow-hidden">
+                        <div class="project-image w-full h-full flex items-center justify-center">
+    <img src="pweb.jfif" alt="Project Image" class="w-full h-full object-cover">
+</div>
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="demo-btn glass-effect px-6 py-3 rounded-full font-medium" onclick="openModal('ai-art-modal')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">My Very Web Portfolio</h3>
+                        <p class="text-gray-300 mb-4">
+                            Proud to present my portfolio web as one of the most successful websites I have ever created as yound young innovative mind. A morden, responsive portfolio website showcasing my skills, projects, and contact information.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="tech-tag bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm">HTML</span>
+                            <span class="tech-tag bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="tech-tag bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full text-sm">js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-2" onclick="openModal('ai-art-modal')">
+                                Learn More <span>→</span>
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🔗
+                                </button>
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🐙
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Space Explorer VR -->
+                <div class="project-card dark-glass rounded-2xl overflow-hidden project-visible" data-category="vr web">
+                    <div class="relative h-64 bg-gradient-to-br from-emerald-400 to-teal-500 overflow-hidden">
+                        <div class="project-image w-full h-full flex items-center justify-center">
+    <img src="sk.jfif" alt="Project Image" class="w-full h-full object-cover">
+</div>
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="demo-btn glass-effect px-6 py-3 rounded-full font-medium" onclick="openModal('space-vr-modal')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">Skhaba Gallery(ongoing project, freelancing)</h3>
+                        <p class="text-gray-300 mb-4">
+                            I’m currently developing Skhaba Gallery as a freelance project, creating an online platform to showcase and explore digital content. This project highlights my web development and UI/UX skills, while allowing me to deliver a real-world, user-focused solution for clients independently.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full text-sm">Three.js</span>
+                            <span class="tech-tag bg-teal-500/20 text-teal-300 px-3 py-1 rounded-full text-sm">WebXR</span>
+                            <span class="tech-tag bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">A-Frame</span>
+                            <span class="tech-tag bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">Physics.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-2" onclick="openModal('space-vr-modal')">
+                                Learn More <span>→</span>
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🔗
+                                </button>
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🐙
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: E-commerce Platform -->
+                <div class="project-card dark-glass rounded-2xl overflow-hidden project-visible" data-category="web">
+                    <div class="relative h-64 bg-gradient-to-br from-orange-400 to-red-500 overflow-hidden">
+                        <div class="project-image w-full h-full flex items-center justify-center">
+    <img src="ntu.jfif" alt="Project Image" class="w-full h-full object-cover">
+</div>
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="demo-btn glass-effect px-6 py-3 rounded-full font-medium" onclick="openModal('ecommerce-modal')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">My Home Town Web(Discover Nondweni)</h3>
+                        <p class="text-gray-300 mb-4">
+                            I’m currently working on developing a website for my hometown, Nondweni. The goal is to create an online hub that showcases the town’s history, culture, businesses, and community projects, while also making information and opportunities easily accessible to locals and visitors.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm">Next.js</span>
+                            <span class="tech-tag bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="tech-tag bg-yellow-500/20 text-yellow-300 px-3 py-1 rounded-full text-sm">MongoDB</span>
+
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-orange-400 hover:text-orange-300 font-medium flex items-center gap-2" onclick="openModal('ecommerce-modal')">
+                                Learn More <span>→</span>
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🔗
+                                </button>
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🐙
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Fitness Tracker App -->
+                <div class="project-card dark-glass rounded-2xl overflow-hidden project-visible" data-category="mobile">
+                    <div class="relative h-64 bg-gradient-to-br from-pink-400 to-rose-500 overflow-hidden">
+                        <div class="project-image w-full h-full flex items-center justify-center">
+    <img src="soon.jfif" alt="Project Image" class="w-full h-full object-cover">
+</div>
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="demo-btn glass-effect px-6 py-3 rounded-full font-medium" onclick="openModal('fitness-modal')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">COMING SOON</h3>
+                        <p class="text-gray-300 mb-4">
+                            Stay tuned for more exciting projects
+                        </p>
+
+                        <div class="flex justify-between items-center">
+                            <button class="text-pink-400 hover:text-pink-300 font-medium flex items-center gap-2" onclick="openModal('fitness-modal')">
+                                Learn More <span>→</span>
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    📱
+                                </button>
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🐙
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Smart Home Dashboard -->
+                <div class="project-card dark-glass rounded-2xl overflow-hidden project-visible" data-category="web ai">
+                    <div class="relative h-64 bg-gradient-to-br from-indigo-400 to-purple-500 overflow-hidden">
+                        <div class="project-image w-full h-full flex items-center justify-center">
+    <img src="soon.jfif" alt="Project Image" class="w-full h-full object-cover">
+</div>
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="demo-btn glass-effect px-6 py-3 rounded-full font-medium" onclick="openModal('smarthome-modal')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">COMING SOON</h3>
+                        <p class="text-gray-300 mb-4">
+                            Stay tuned for more exciting projects
+                        </p>
+
+<div class="flex justify-between items-center">
+                            <button class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-2" onclick="openModal('smarthome-modal')">
+                                Learn More <span>→</span>
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🔗
+                                </button>
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🐙
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: AR Shopping Experience -->
+                <div class="project-card dark-glass rounded-2xl overflow-hidden project-visible" data-category="vr mobile">
+                    <div class="relative h-64 bg-gradient-to-br from-yellow-400 to-orange-500 overflow-hidden">
+                        <div class="project-image w-full h-full flex items-center justify-center">
+    <img src="soon.jfif" alt="Project Image" class="w-full h-full object-cover">
+</div>
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <button class="demo-btn glass-effect px-6 py-3 rounded-full font-medium" onclick="openModal('ar-shopping-modal')">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3">COMING SOON</h3>
+                        <p class="text-gray-300 mb-4">
+                            Stay tuned for more exciting projects
+                        </p>
+
+                        <div class="flex justify-between items-center">
+                            <button class="text-yellow-400 hover:text-yellow-300 font-medium flex items-center gap-2" onclick="openModal('ar-shopping-modal')">
+                                Learn More <span>→</span>
+                            </button>
+                            <div class="flex space-x-2">
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    📱
+                                </button>
+                                <button class="w-8 h-8 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                                    🐙
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-6 slide-in-up">My <span class="gradient-text">Process</span></h2>
+                <p class="text-xl text-gray-300 slide-in-up">How I bring ideas to life</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center slide-in-left">
+                    <div class="w-20 h-20 mx-auto mb-6 glass-effect rounded-full flex items-center justify-center text-3xl">
+                        🔍
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Research & Discovery</h3>
+                    <p class="text-gray-300">
+                        Understanding the problem, target audience, and market landscape to inform design decisions.
+                    </p>
+                </div>
+
+                <div class="text-center slide-in-up">
+                    <div class="w-20 h-20 mx-auto mb-6 glass-effect rounded-full flex items-center justify-center text-3xl">
+                        ✏️
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Design & Prototype</h3>
+                    <p class="text-gray-300">
+                        Creating wireframes, mockups, and interactive prototypes to visualize the solution.
+                    </p>
+                </div>
+
+                <div class="text-center slide-in-up">
+                    <div class="w-20 h-20 mx-auto mb-6 glass-effect rounded-full flex items-center justify-center text-3xl">
+                        ⚡
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Develop & Build</h3>
+                    <p class="text-gray-300">
+                        Bringing designs to life with clean, efficient code and modern development practices.
+                    </p>
+                </div>
+
+                <div class="text-center slide-in-right">
+                    <div class="w-20 h-20 mx-auto mb-6 glass-effect rounded-full flex items-center justify-center text-3xl">
+                        🚀
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Test & Launch</h3>
+                    <p class="text-gray-300">
+                        Rigorous testing, optimization, and deployment to ensure a flawless user experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="dark-glass rounded-3xl p-12 slide-in-up">
+                <h2 class="text-4xl font-bold mb-6">Ready to Start Your <span class="gradient-text">Project</span>?</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Let's collaborate and create something extraordinary together.
+                    I'm always excited to take on new challenges and bring innovative ideas to life.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#contact" class="bg-gradient-to-r from-purple-500 to-blue-500 px-8 py-4 rounded-full hover:from-purple-600 hover:to-blue-600 transition-all transform hover:scale-105">
+                        Start a Project ✨
+                    </a>
+                    <a href="about.html" class="glass-effect px-8 py-4 rounded-full hover:bg-white/20 transition-all transform hover:scale-105">
+                        Learn More About Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <!-- AI Art Generator Modal -->
+    <div id="ai-art-modal" class="modal fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-4">
+        <div class="modal-content dark-glass rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold">My web Portfolio</h2>
+                    <button onclick="closeModal('ai-art-modal')" class="w-10 h-10 glass-effect rounded-full flex items-center justify-center hover:bg-white/20">
+                        ✕
+                    </button>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="h-64 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl mb-6 flex items-center justify-center">
+    <img src="pweb.jfif" alt="Project Image" class="h-full w-full object-cover rounded-xl">
+</div>
+                        <div class="space-y-4">
+                            <div class="glass-effect p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">🎯 Challenge</h4>
+                                <p class="text-gray-300 text-sm">Many freelancers struggle to showcase their skills in a visually appealing and interactive way. The challenge was to create a portfolio that not only looks professional but also clearly communicates my work and expertise.</p>
+                            </div>
+                            <div class="glass-effect p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">💡 Solution</h4>
+                                <p class="text-gray-300 text-sm">I designed a responsive, modern web portfolio with a clean layout, interactive elements, and clear navigation. The site allows visitors to explore projects, view details, and contact me easily.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Project Overview</h3>
+                        <p class="text-gray-300 mb-6">
+                            This portfolio website is a single-page web application that showcases my projects, skills, and contact information. It features smooth scrolling, hover effects, and a visually engaging design..
+                        </p>
+
+
+                        <h4 class="font-semibold mb-3">Key Features</h4>
+                        <ul class="text-gray-300 space-y-2 mb-6">
+                            <li>• Responsive design for all devices</li>
+                            <li>• Interactive project cards with hover effects</li>
+                            <li>• Smooth scrolling navigation</li>
+                            <li>• Contact form with email integration</li>
+                            <li>•Highlighted skill sections with icons</li>
+                        </ul>
+
+                        <h4 class="font-semibold mb-3">Technologies Used</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm">THML</span>
+                            <span class="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm">CSS</span>
+                            <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">GitHub</span>
+                            <span class="bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full text-sm"> Figma</span>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <button class="bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all">
+                                Live Demo
+                            </button>
+                            <button class="glass-effect px-6 py-3 rounded-full hover:bg-white/20 transition-all">
+                                View Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Space Explorer VR Modal -->
+    <div id="space-vr-modal" class="modal fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-4">
+        <div class="modal-content dark-glass rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold">Skhaba Gallery</h2>
+                    <button onclick="closeModal('space-vr-modal')" class="w-10 h-10 glass-effect rounded-full flex items-center justify-center hover:bg-white/20">
+                        ✕
+                    </button>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="h-64 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl mb-6 flex items-center justify-center">
+    <img src="sk.jfif" alt="Project Image" class="h-full w-full object-cover rounded-xl">
+</div>
+                        <div class="space-y-4">
+                            <div class="glass-effect p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">🎯 Challenge</h4>
+                                <p class="text-gray-300 text-sm">Many local artists and photographers lack a centralized platform to showcase their work online. The challenge was to create a visually appealing gallery website that makes it easy for visitors to explore artwork while giving artists proper exposure.</p>
+                            </div>
+                            <div class="glass-effect p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">💡 Solution</h4>
+                                <p class="text-gray-300 text-sm">I developed Skhaba Gallery, a responsive and interactive web platform that displays artwork in an organized and engaging way. The site emphasizes the visual experience, allowing users to browse, filter, and zoom in on pieces effortlessly.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Project Overview</h3>
+                        <p class="text-gray-300 mb-6">
+                            Skhaba Gallery is an online gallery platform designed to showcase artwork from multiple artists. It features clean layouts, smooth transitions, and an intuitive user interface that highlights the artwork effectively.
+                        </p>
+
+
+
+                        <h4 class="font-semibold mb-3">Key Features</h4>
+                        <ul class="text-gray-300 space-y-2 mb-6">
+                            <li>• Grid-based gallery with hover effects</li>
+                            <li>• Filter and sort functionality by category or artist</li>
+                            <li>• Lightbox view for enlarged artwork</li>
+                            <li>• Artist profiles with featured works</li>
+                            <li>• Responsive design for mobile and desktop</li>
+                        </ul>
+
+                        <h4 class="font-semibold mb-3">Technologies Used</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full text-sm">HTML, CSS</span>
+                            <span class="bg-teal-500/20 text-teal-300 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                            <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">Figma</span>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <button class="bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 rounded-full hover:from-emerald-600 hover:to-teal-600 transition-all">
+                                Try VR Demo
+                            </button>
+                            <button class="glass-effect px-6 py-3 rounded-full hover:bg-white/20 transition-all">
+                                View Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional modals would follow the same pattern... -->
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-white/10">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="text-2xl font-bold mb-4 gradient-text">Nkanyiso Austine Hlatshwayo</div>
+            <p class="text-gray-400 mb-6">Creative Developer & Digital Artist</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.facebook.com/share/19Hf9wK2Ye/?mibextid=wwXIfr" target="_blank"
+       class="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all overflow-hidden">
+        <img src="fac.jfif" alt="Facebook" class="w-8 h-8 object-cover">
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/austine03_sa?igsh=MWEybWY5emtrbWFheA%3D%3D&utm_source=qr" target="_blank"
+       class="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all overflow-hidden">
+        <img src="iig.jfif" alt="Instagram" class="w-8 h-8 object-cover">
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="http://linkedin.com/in/nkanyiso-hlatshwayo-842401355" target="_blank"
+       class="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all overflow-hidden">
+        <img src="in.jfif" alt="LinkedIn" class="w-8 h-8 object-cover">
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/austine-03" target="_blank"
+       class="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:bg-white/20 transition-all overflow-hidden">
+        <img src="git.jfif" alt="GitHub" class="w-8 h-8 object-cover rounded-full">
+    </a>
+            </div>
+            <p class="text-gray-500">&copy; 2025 Nkanyiso Austine Hlatshwayo. Crafted with passion and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+
+                    if (filter === 'all' || categories.includes(filter)) {
+                        card.classList.remove('project-hidden');
+                        card.classList.add('project-visible');
+                    } else {
+                        card.classList.remove('project-visible');
+                        card.classList.add('project-hidden');
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initial animation trigger
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up').forEach((el, index) => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        setTimeout(() => {
+                            el.classList.add('animate-in');
+                        }, index * 100);
+                    }
+                });
+            }, 300);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9798398fe12d73d4',t:'MTc1NjkzMzczMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
